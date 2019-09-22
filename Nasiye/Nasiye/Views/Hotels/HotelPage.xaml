@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="container"
+             x:Class="Nasiye.Views.Hotels.HotelPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout    Padding="15,10" 
+                            Grid.Row="0"
+                            HeightRequest="200">
+                <Frame HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           Padding="0"
+                           HasShadow="True"
+                           CornerRadius="20">
+                    <RelativeLayout Padding="0" >
+                        <!-- Background -->
+                        <Image  x:Name="image"
+                                Aspect="AspectFill"
+                                Opacity="0.8"
+                                Source="Assets/hotel.png"  
+                                RelativeLayout.WidthConstraint= "{
+                                ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Width}"
+                                RelativeLayout.HeightConstraint= "{
+                                ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Height}">
+                        </Image>
+                        <StackLayout 
+                            BackgroundColor="#80FFFFFF"
+                            Padding="3"
+                            
+                              RelativeLayout.WidthConstraint= "{
+                             ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Width}"
+                                RelativeLayout.HeightConstraint= "{
+                                ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Height}"
+                            
+                            HorizontalOptions="FillAndExpand" 
+                            VerticalOptions="EndAndExpand" 
+                           Margin="0" >
+                            <Label x:Name="info" 
+                                FontSize="Medium"
+                                Text=""
+                                VerticalOptions="EndAndExpand"
+                                HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+                    </RelativeLayout>
+                </Frame>
+            </StackLayout>
+
+            <ScrollView Grid.Row="1" Padding="10">
+                <Frame HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" 
+                       Padding="0">
+                    
+                    <StackLayout Spacing="10">
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="30*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Column="0">
+                                <Label x:Name="name"
+                                       Text="Hotel Name" 
+                                       TextColor="SteelBlue"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
+                                <Label x:Name="address"
+                                       Text="Hotel Address" 
+                                       TextColor="SteelBlue"
+                                       FontSize="14"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1">
+                                <Label x:Name="city"
+                                       Text="City" 
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="SteelBlue"
+                                       FontAttributes="Bold"
+                                       FontSize="15"/>
+                                <Label x:Name="price"
+                                       Text="$ 40 /~" 
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="SteelBlue"
+                                       FontAttributes="Bold"
+                                       FontSize="15"/>
+                            </StackLayout>
+                        </Grid>
+
+                      
+
+                        <ListView RowHeight="80"
+                          x:Name="roomlist"
+                          x:FieldModifier="public"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          ItemSelected="Roomlist_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Frame BackgroundColor="#FAFAFA"
+                                                   HasShadow="True"
+                                                   Padding="0"
+                                                   Margin="5"
+                                                   BorderColor="#FFFFFF"
+                                                   CornerRadius="10">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="35*" />
+                                                        <ColumnDefinition Width="45*" />
+                                                        <ColumnDefinition Width="20*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Grid.Row="0">
+                                                        <Image 
+                                                            Source="{Binding Image}" 
+                                                            HorizontalOptions="FillAndExpand"
+                                                            VerticalOptions="FillAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" 
+                                                        >
+                                                        <Label x:Name="type"
+                                                       Text="{Binding Type}" FontSize="20" 
+                                                       />
+                                                        <Label x:Name="info"
+                                                       Text="{Binding Info}" FontSize="15" 
+                                                       />
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="2" 
+                                                         BackgroundColor="SteelBlue">
+                                                        <Label x:Name="amount"
+                                                       TextColor="White"
+                                                       Text="{Binding Amount}" 
+                                                       FontSize="20" 
+                                                       HorizontalOptions="CenterAndExpand" 
+                                                       VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        
+
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

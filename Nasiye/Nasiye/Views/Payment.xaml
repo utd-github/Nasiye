@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Nasiye.Views.Payment">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Spacing="10">
+                <Label Text="The Ttotal Amount is: " 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                
+                <Label x:Name="amount"
+                    Text="$ 000" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                
+                <Label Text="Choose a payment type" 
+                       FontSize="Large" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+
+                <Frame
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="#FAFAFA"
+                            BorderColor="#FFFFFF"
+                            CornerRadius="10"
+                            HasShadow="True"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center">
+                    <StackLayout Padding="5">
+                        <ImageButton    x:Name="edahab"          
+                                    Clicked="Edahab_Clicked"
+                                    BackgroundColor="White"
+                                    Aspect="Fill"
+                                    HeightRequest="120"
+                                    HorizontalOptions="Center"
+                                    Source="Assets/edahab.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="140" />
+
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="#FAFAFA"
+                            BorderColor="#FFFFFF"
+                            CornerRadius="10"
+                            HasShadow="True"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center">
+                    <StackLayout Padding="5">
+                        <ImageButton    x:Name="cash"
+                                    Clicked="Cash_Clicked"
+                                    BackgroundColor="White"
+                                    Aspect="Fill"
+                                    HeightRequest="120"
+                                    Source="Assets/payments.png"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    WidthRequest="140" />
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+            <Button Text="Done" 
+                    x:Name="close" 
+                    TextColor="White"
+                    BackgroundColor="SteelBlue"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="Close_Clicked" 
+                    FontSize="Medium" />
+        </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

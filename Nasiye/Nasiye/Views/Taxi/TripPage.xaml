@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Nasiye.CustomRenderers"
+             xmlns:xforms="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Nasiye.Views.Taxi.TripPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="loader"
+                AbsoluteLayout.LayoutBounds=".5,.5,.10,.8"
+                AbsoluteLayout.LayoutFlags="All"
+                IsRunning="True"/>
+            <local:CustomMap
+                  x:Name="mainmap"
+                  MapType="Street"
+                  IsVisible="False"
+                  IsShowingUser="True"
+                  AbsoluteLayout.LayoutBounds=".5,0,500,800"
+                 />
+            <Frame AbsoluteLayout.LayoutBounds=".5,.03,.9,.065" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="White" 
+                         CornerRadius="8"
+                         Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           FontSize="25"
+                           Text="Nasiye Taxi Service"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame AbsoluteLayout.LayoutBounds=".5,.10,.50,.048" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="White" 
+                         x:Name="statusbar"
+                         CornerRadius="8"
+                         Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           FontSize="18"
+                           x:Name="status"
+                           Text=""/>
+                </StackLayout>
+            </Frame>
+            <StackLayout Spacing="0"
+                         BackgroundColor="White"
+                         Padding="0"
+                         AbsoluteLayout.LayoutBounds=".87,.990,.998, .21"
+                         AbsoluteLayout.LayoutFlags="All">
+                
+                <ActivityIndicator  x:Name="iloader"
+                       IsRunning="True"
+                                    IsVisible="False"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"/>
+                
+                <Grid x:Name="infobox"  
+                      BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="40*" />
+                        <ColumnDefinition Width="30*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="driverimage"
+                            Grid.Column="0"
+                            Source="Assets/image.png"
+                            HeightRequest="150"
+                            WidthRequest="150" 
+                            />
+                    <StackLayout Grid.Column="1" Spacing="0" Padding="0,10,0,0">
+                        <Label x:Name="drivername" Text="Driver name" FontSize="18" 
+                               FontAttributes="Bold" 
+                                HorizontalOptions="StartAndExpand"/>
+                        <Label x:Name="drivervehicle" Text="Driver Vehicle" 
+                               FontSize="15"
+                               FontAttributes="Bold"
+                                HorizontalOptions="StartAndExpand"/>
+                        <Label x:Name="drivervehicleplate" FontSize="15"
+                               FontAttributes="Bold"
+                               Text="Driver Plate" 
+                               HorizontalOptions="StartAndExpand"/>
+                        <xforms:SfRating 
+                                x:Name="driverrating"
+                                ItemCount="5"
+                                IsEnabled="False"
+                                ItemSize="15"
+                                Precision="Standard" 
+                                ItemSpacing="15"
+                                VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="CenterAndExpand"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" >
+                        <Button x:Name="calldriver"
+                            Margin="10"
+                            Clicked="Calldriver_Clicked"
+                            Text="Call"
+                            BackgroundColor="Accent"
+                            TextColor="white"
+                            CornerRadius="5"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            WidthRequest="300"
+                            />
+                    </StackLayout>
+                </Grid>
+                
+                <Frame x:Name="ftripcon"
+                       IsVisible="False"
+                       AbsoluteLayout.LayoutBounds=".5,.999,.99,.23" 
+                       AbsoluteLayout.LayoutFlags="All"
+                       BackgroundColor="White" 
+                       Padding="10">
+                        <StackLayout >
+                            <StackLayout 
+                                 Orientation="Horizontal"
+                                 Spacing="40">
+
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Image Source="Assets/distanation.png"
+                                       HeightRequest="50"
+                                       WidthRequest="50" 
+                                       HorizontalOptions="CenterAndExpand"/>
+                                    <Label x:Name="distance" FontSize="18" FontAttributes="Bold" Text="00 KM" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Image Source="Assets/time.png"
+                                       HeightRequest="50"
+                                       WidthRequest="50" 
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label x:Name="duration" FontSize="18" FontAttributes="Bold" Text="00 Secs" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Image Source="Assets/payments.png"
+                                       HeightRequest="50"
+                                       WidthRequest="50" 
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="0.0 $" FontSize="18" FontAttributes="Bold" x:Name="amount" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                    </StackLayout>
+                </Frame>
+                
+                <Button     x:Name="cancelbtn"
+                            Clicked="Cancelbtn_Clicked"
+                            Text="Cancel Trip"
+                            IsVisible="False"
+                            BackgroundColor="#ff502f"
+                            TextColor="white"
+                            CornerRadius="5"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            WidthRequest="300"
+                            />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:localm="clr-namespace:Nasiye.Models"
+                  xmlns:localv="clr-namespace:Nasiye.Views"
+            xmlns:localu="clr-namespace:Nasiye.Views.User"
+                  
+                  mc:Ignorable="d"
+             x:Class="Nasiye.Views.MainContainerPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Home">
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="70*" />
+                </Grid.RowDefinitions>
+                
+                <StackLayout Grid.Row="0">
+                    <Frame Grid.Row="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Padding="5">
+                            
+                            <ActivityIndicator x:Name="loader"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"    
+                                       IsRunning="True"/>
+                            
+                            <Grid x:Name="profilecon" IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60*" />
+                                    <RowDefinition Height="40*" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0">
+                                    <Image 
+                               x:Name="userimage"
+                               Source="Assets/image.png"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                                    />
+                                </StackLayout>
+                                
+                                <StackLayout Grid.Row="1"  Padding="10">
+                                    <Label x:Name="username"
+                                           Text="Full Name"
+                                           FontSize="Medium"
+                                           HorizontalOptions="CenterAndExpand"
+                                           VerticalOptions="CenterAndExpand"
+                                            /> 
+                                   
+                                    <Label x:Name="userphone"
+                                           Text="Phone Number"
+                                           FontSize="Medium"
+                                           HorizontalOptions="CenterAndExpand"
+                                           VerticalOptions="CenterAndExpand"
+                                />
+                                </StackLayout>
+                            </Grid>
+                            
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
+
+
+                    <ListView 
+                        x:Name="MenuItemList"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                        x:FieldModifier="public"
+                        ItemSelected="MenuItemList_ItemSelected">
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type localm:ListItemModel}">
+                                <localm:ListItemModel
+                                    Title="My Trips"
+                                    IconSource="Assets/trips.png"
+                                    TargetType="{x:Type localu:MyTripsPage}" />
+                                <localm:ListItemModel
+                                    Title="My Tickets"
+                                    IconSource="Assets/ticket.png"
+                                    TargetType="{x:Type localu:BookedTicket}" />
+                                <localm:ListItemModel
+                                    Title="My Reservation"
+                                    IconSource="Assets/hotels.png"
+                                    TargetType="{x:Type localu:BookedHotel}" />
+                                <localm:ListItemModel
+                                    Title="Feedback"
+                                    IconSource="Assets/feedback.png"
+                                    TargetType="{x:Type localu:FeedbackPage}" />
+                                <localm:ListItemModel
+                                    Title="About"
+                                    IconSource="Assets/about.png"
+                                    TargetType="{x:Type localu:AboutPage}" />
+                            </x:Array>
+                        </ListView.ItemsSource>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="5,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding IconSource}" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            Text="{Binding Title}"
+                                            TextColor="{Binding TextColor}"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage NavigationPage.HasNavigationBar="False">
+            <x:Arguments>
+                <localv:MainPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

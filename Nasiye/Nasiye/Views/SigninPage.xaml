@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local1="clr-namespace:Nasiye.Behavior"
+             mc:Ignorable="d"
+             Title="Sign in"
+             x:Class="Nasiye.Views.SigninPage">
+    <ContentPage.Content>
+        <ScrollView Padding="0" Margin="0">
+            <StackLayout Padding="0,20,0,0" Margin="0">
+                
+                <ActivityIndicator 
+                    x:Name="loader"
+                    IsEnabled="True"
+                    IsVisible="False"
+                    IsRunning="True"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand" />
+                <Label  VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                        x:Name="info" 
+                        IsVisible="False"/>
+                <Frame x:Name="container" 
+                       HasShadow="True"
+                       CornerRadius="10"
+                       BackgroundColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                        >
+                    <StackLayout Spacing="10" Padding="10">
+                        <Image Source="Assets/logoh.png" WidthRequest="150" />
+
+                        <Label Text="Welcome back!"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                         />
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="CenterAndExpand" x:Name="phonecont">
+                            <Grid Padding="15" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"/>
+                                    <ColumnDefinition Width="80*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Entry  Grid.Column="0"
+                                    Text="+252" 
+                                    IsEnabled="False"
+                                    HorizontalOptions="Start"
+                             />
+                                <Entry  
+                                x:Name="ephone"
+                                Margin="-10,0,0,0"
+                                Grid.Column="1"
+                                Keyboard="Telephone"
+                                Placeholder="Phone Number"    
+                                   />
+                            </Grid>
+
+                          
+
+                        </StackLayout>
+
+                        <Button x:Name="signin"
+                                Clicked="Signin_Clicked"
+                                Text="Sign in"
+                                CornerRadius="5"
+                                TextColor="White"
+                                Margin="10,20"
+                                BackgroundColor="Accent"
+                            />
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

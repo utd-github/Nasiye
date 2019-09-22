@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Book Room"
+             x:Class="Nasiye.Views.Hotels.BookRoomPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+            <StackLayout     Padding="15,10" 
+                             Grid.Row="0"
+                            HeightRequest="200">
+                <Frame HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       BackgroundColor="#FAFAFA"
+                       HasShadow="True"
+                       BorderColor="#FFFFFF"
+                       CornerRadius="10">
+                    <RelativeLayout Padding="0" >
+                        <!-- Background -->
+                        <Image  x:Name="image"
+                                Aspect="AspectFill"
+                                Opacity="0.8"
+                                Source="Assets/hotel.png"  
+                                RelativeLayout.WidthConstraint= "{
+                                ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Width}"
+                                RelativeLayout.HeightConstraint= "{
+                                ConstraintExpression 
+                                Type=RelativeToParent, 
+                                Property=Height}">
+                        </Image>
+                        
+                    </RelativeLayout>
+                </Frame>
+            </StackLayout>
+            <ScrollView Grid.Row="1" Padding="10">
+                <Frame>
+                    <StackLayout Spacing="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame Padding="0" HorizontalOptions="StartAndExpand">
+                                <StackLayout>
+                                    <Label Text="Hotel Name" FontSize="18"              
+                                           FontAttributes="Bold" 
+                                           x:Name="hotel" />
+                                    <Label Text="Hotel Address" 
+                                           FontSize="15" 
+                                           FontAttributes="Bold" 
+                                           x:Name="address" />
+                                </StackLayout>
+                            </Frame>
+                           
+                            <Frame Padding="0" 
+                                   HorizontalOptions="EndAndExpand">
+                                <StackLayout>
+                                    <Label x:Name="amount"
+                                       Text="$ 000" 
+                                       FontSize="Large"
+                                       TextColor="#1fab89"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center" 
+                                        />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        
+                        
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="0,10,0,10">
+                            <Label Text="Room Type" />
+                            <Label x:Name="roomtype"
+                                   FontSize="Medium"
+                                   Text="Room Type"/>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Check In" />
+                                <DatePicker x:Name="from" />
+                            </StackLayout>
+                            
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Check Out" />
+                                <DatePicker x:Name="to" />
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Button x:Name="book"
+                                TextColor="White"
+                                BackgroundColor="Accent"
+                                Clicked="Book_Clicked"
+                                Text="Book Now" 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Frame>
+                
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

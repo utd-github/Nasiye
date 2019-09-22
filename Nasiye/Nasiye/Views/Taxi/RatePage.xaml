@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xforms="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:segmentCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             mc:Ignorable="d"
+             Title="Rate your trip"
+             x:Class="Nasiye.Views.Taxi.RatePage">
+
+    <ContentPage.Content>
+        <Grid Margin="0" Padding="5">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" 
+                         Padding="5" 
+                         Orientation="Horizontal"
+                         Spacing="15">
+                
+                <Frame  CornerRadius="10" 
+                        HeightRequest="100"
+                        WidthRequest="100" 
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Start"
+                        BackgroundColor="AliceBlue"
+                        Padding="0"
+                                >
+                    <Image x:Name="driverImage"
+                           Aspect="AspectFill"
+                           Source="Assets/image.png"
+                           Margin="0"/>
+                </Frame>
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="Driver Name" />
+                    <Label  x:Name="drivername"
+                        Text="Full Name"
+                        FontAttributes="Bold"
+                        FontSize="20" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="1">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Duration"/>
+                    <Label x:Name="duration" 
+                           Text="15 min" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Price"/>
+                    <Label x:Name="price" 
+                           Text="$ 15.00" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Distance"/>
+                    <Label x:Name="distance" 
+                           Text="15 min" 
+                           FontSize="18" 
+                           FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="10">
+                <Label Text="How was your trip?" 
+                       HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="CenterAndExpand"/>
+                
+                <xforms:SfRating 
+                    x:Name="rating"
+                    ItemCount="5"
+                    ItemSize="15"
+                    Precision="Standard" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    />
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Padding="10">
+
+                <StackLayout Spacing="10">
+                    <Label Text="Choose Payment Method" FontSize="18"/>
+
+                    <Picker x:Name="payments" 
+                            FontSize="18"
+                            SelectedIndex="0"
+                            Title="Payment Type"
+                            HorizontalOptions="FillAndExpand"
+                            >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Cash</x:String>
+                                <x:String>E-Dahab</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </StackLayout>
+
+            </StackLayout>
+            
+            <StackLayout Grid.Row="4" Padding="10">
+                
+                <Button x:Name="submit" 
+                        Text="Submit"
+                        TextColor="White"
+                        BackgroundColor="Accent"
+                        VerticalOptions="EndAndExpand"
+                        Clicked="Submit_Clicked" />
+            </StackLayout>
+            
+            
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

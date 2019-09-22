@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="My Tickets"
+             x:Class="Nasiye.Views.User.BookedTicket">
+    <ContentPage.Content>
+      
+            
+
+            <StackLayout >
+                <Label x:Name="info"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   IsVisible="False"
+                   Text="No Bookings found!"
+                   />
+                <ListView Grid.Row="1"
+                          RowHeight="190"
+                          x:Name="bookingsList"
+                          x:FieldModifier="public"
+                          IsRefreshing="True"
+                          SeparatorVisibility="None"
+                          ItemSelected="BookingsList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView>
+                                    <Grid >
+                                        <Frame BackgroundColor="#FAFAFA"
+                                                HasShadow="True"
+                                                Margin="10"
+                                                Padding="0"
+                                                BorderColor="#FFFFFF"
+                                                CornerRadius="10"
+                                                >
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="70*" />
+                                                    <RowDefinition Height="30*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="20*"/>
+                                                        <ColumnDefinition Width="60*"/>
+                                                        <ColumnDefinition Width="20*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Grid Grid.Column="0">
+                                                        <Image Source="{Binding Ticket.Image}" Aspect="AspectFill"/>
+                                                    </Grid>
+
+                                                    <StackLayout Grid.Column="1" Padding="5,5,0,0">
+                                                        <Label Text="{Binding Ticket.Airline}" 
+                                               FontSize="20" 
+                                               TextColor="SteelBlue" 
+                                            />
+                                                        <StackLayout Orientation="Horizontal">
+
+                                                            <StackLayout HorizontalOptions="StartAndExpand">
+                                                                <Label Text="From" />
+                                                                <Label Text="{Binding Ticket.From}" FontSize="18" FontAttributes="Bold"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout HorizontalOptions="CenterAndExpand" >
+                                                                <Label Text="To" />
+                                                                <Label Text="{Binding Ticket.To}" FontSize="18" FontAttributes="Bold"/>
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Grid.Column="2">
+                                                        <Label Text="{Binding Ticket.Code}" TextColor="LightSalmon" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" FontSize="20"/>
+                                                        <Label Text="{Binding Status}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" FontSize="18"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                                    <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="Passengers"/>
+                                                        <Label Text="{Binding Quantity}" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                    <StackLayout  Padding="10" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="Type" />
+                                                        <Label Text="{Binding Type}" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+    
+    </ContentPage.Content>
+</ContentPage>

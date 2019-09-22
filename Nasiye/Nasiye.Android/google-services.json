@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "212962839266",
+    "firebase_url": "https://nasiyebooking.firebaseio.com",
+    "project_id": "nasiyebooking",
+    "storage_bucket": "nasiyebooking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212962839266:android:1808714c02e99f48",
+        "android_client_info": {
+          "package_name": "com.utd.nasiye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212962839266-70krpr3qk1mo4k5lgto7diui3p2ab2uk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.utd.nasiye",
+            "certificate_hash": "2f407be8823226f581d4ff9f2476fb2f32bee6af"
+          }
+        },
+        {
+          "client_id": "212962839266-qmvgnltktoa4eromtij8ri59i272ra0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcp5uXg2AEFZhqtHK925gY5Tk01RkuzZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212962839266-qmvgnltktoa4eromtij8ri59i272ra0f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "212962839266-kde5d32bcacqa6r44avp59f5ffslb4pc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.utd.nasiye"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212962839266:android:e60d3e27640168e4",
+        "android_client_info": {
+          "package_name": "com.utd.nasiyedriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212962839266-qmvgnltktoa4eromtij8ri59i272ra0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcp5uXg2AEFZhqtHK925gY5Tk01RkuzZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212962839266-qmvgnltktoa4eromtij8ri59i272ra0f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "212962839266-kde5d32bcacqa6r44avp59f5ffslb4pc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.utd.nasiye"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

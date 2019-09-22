@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Book Ticket"
+             x:Class="Nasiye.Views.Tickets.BookTicket">
+    <ContentPage.Content>
+            
+            <StackLayout >
+                <ActivityIndicator x:Name="loader"
+                                   IsVisible="True" 
+                                   IsRunning="True" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" />
+                <StackLayout x:Name="container" IsVisible="False" >
+                    <Frame 
+                       BackgroundColor="#FAFAFA"
+                       HasShadow="True"
+                       Margin="10"
+                       BorderColor="#FFFFFF"
+                       CornerRadius="10" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" 
+                       >
+                        <Grid HeightRequest="80">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="60*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Image x:Name="image" Source="Assets/ethiopian.png" />
+                            </Grid>
+
+                            <StackLayout Grid.Column="1" Padding="5,5,0,0">
+                                <Label Text="Ariline" 
+                               x:Name="airline"
+                                FontSize="20" 
+                                TextColor="SteelBlue" 
+                                            />
+                                <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <Label Text="From" FontSize="10"/>
+                                        <Label Text="FROM" 
+                                        x:Name="from"
+                                       />
+                                    </StackLayout>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <Label Text="To" FontSize="10"/>
+                                        <Label Text="TO"
+                                       x:Name="to"
+                                       />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Grid.Column="2">
+                                <Label Text="" 
+                               x:Name="code"
+                               TextColor="LightSalmon" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" FontSize="23"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Frame  
+                       BackgroundColor="#FAFAFA"
+                       HasShadow="True"
+                       Padding="5"
+                       BorderColor="#FFFFFF"
+                       CornerRadius="10" 
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand" 
+                       >
+                        <StackLayout Spacing="10">
+
+                            <StackLayout VerticalOptions="EndAndExpand">
+                                <Label Text="Flight Type" />
+                                <Picker x:Name="type" 
+                            FontSize="18"
+                            SelectedIndex="0"
+                            Title="Flight Type"
+                            HorizontalOptions="FillAndExpand"
+                            >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>One Way</x:String>
+                                            <x:String>Round Trip</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Date" />
+                                <DatePicker x:Name="date" />
+                            </StackLayout>
+
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="Passengers" />
+                                <Picker x:Name="quantity" 
+                            FontSize="18"
+                            SelectedIndex="0"
+                            Title="Passengers"
+                            HorizontalOptions="FillAndExpand"
+                                        SelectedIndexChanged="Quantity_SelectedIndexChanged"
+                            >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>1</x:String>
+                                            <x:String>2</x:String>
+                                            <x:String>3</x:String>
+                                            <x:String>4</x:String>
+                                            <x:String>5</x:String>
+                                            <x:String>6</x:String>
+                                            <x:String>7</x:String>
+                                            <x:String>8</x:String>
+                                            <x:String>9</x:String>
+                                            <x:String>10</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </StackLayout>
+
+                            <Button x:Name="book"
+                                TextColor="White"
+                                BackgroundColor="Accent"
+                                Clicked="Book_Clicked"
+                                Text="Book Now" 
+                                    IsEnabled="False"
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="EndAndExpand" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+              
+            </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
